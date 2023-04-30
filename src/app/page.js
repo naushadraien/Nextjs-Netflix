@@ -3,7 +3,7 @@ import HeroSection from "./components/HeroSection"
 const page = () => {
   return (
     <>
-    <HeroSection/>
+    <HeroSection title={"LET'S WATCH MOVIE TOGETHER"} imageUrl={"/home.svg"} /> 
     </>
   )
 }

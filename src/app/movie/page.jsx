@@ -1,9 +1,13 @@
-import React from 'react'
+import Link from "next/link"
 
-const page = () => {
+const Movie = () => {
   return (
-    <div>Movie</div>
+    <>
+    <Link href='/movie/50'>
+      Click Me
+    </Link>
+    </>
   )
 }
 
-export default page
+export default Movie
