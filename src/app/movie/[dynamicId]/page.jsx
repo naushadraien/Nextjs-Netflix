@@ -22,10 +22,10 @@ const page = async ({params}) => { //params is basically id
     // console.log(id);
   return (
     <div className={styles.container}>
-      <h2 className={styles.movie_title}>Netflix \ <span>{mainData.type}</span></h2>
+      <h2 className={styles.movie_title}>Netflix / <span>{mainData.type}</span></h2>
       <div className={styles.card_section}>
         <div>
-          <Image src={mainData.backgroundImage.url} alt={mainData.title} width={600} height={300} />
+          <Image src={mainData.backgroundImage.url} alt={mainData.title} width={600} height={300} style={{borderRadius: '1rem'}} />
         </div>
         <div>
           <h1>{mainData.title}</h1>

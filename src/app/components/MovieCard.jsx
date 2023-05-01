@@ -8,11 +8,11 @@ const MovieCard = (curElem) => { //this curElem is passed from movie file page.j
     <>
     <div className={styles.card}>
         <div className={styles.card_image}>
-            <Image src={backgroundImage.url} alt={title} width={250} height={200} key={id} />
+            <Image src={backgroundImage.url} alt={title} width={260} height={200} key={id} />
         </div>
         <div className={styles.card_data}>
-            <h2>{title}</h2>
-            <p>{synopsis}</p>
+            <h2>{title.slice(0,18)}</h2>
+            <p>{`${synopsis.slice(0,66)} ...`}</p> {/* here we are slicing the synopsis to 66 characters and adding ... after 66 characters*/}
             <Link href={`/movie/${id}`}>
                 <button>Read More</button>
             </Link>
