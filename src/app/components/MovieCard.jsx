@@ -8,7 +8,7 @@ const MovieCard = (curElem) => { //this curElem is passed from movie file page.j
     <>
     <div className={styles.card}>
         <div className={styles.card_image}>
-            <Image src={backgroundImage.url} alt={title} width={250} height={200} />
+            <Image src={backgroundImage.url} alt={title} width={250} height={200} key={id} />
         </div>
         <div className={styles.card_data}>
             <h2>{title}</h2>
