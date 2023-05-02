@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const MovieCard = (curElem) => { //this curElem is passed from movie file page.jsx as props
-    const {id, title, synopsis, backgroundImage} = curElem.jawSummary; //destructuring the props i.e curElem is titles and this curElem.titles is titles.jawSummary
+    const {id, title, synopsis, backgroundImage} = curElem.jawSummary; //destructuring the props i.e curElem is titles and this curElem.jawsummary is titles.jawSummary
   return (
     <>
     <div className={styles.card}>
