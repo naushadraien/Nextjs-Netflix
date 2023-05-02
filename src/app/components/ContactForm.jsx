@@ -27,7 +27,7 @@ const ContactForm = () => {
         headers: { 
           "Content-Type": "application/json" 
         },
-        body: JSON.stringify({
+        body: JSON.stringify({ //here username, phone, email, message are the names that are used in the database and user.username, user.phone, user.email, user.message are the values that are used in the database from the user from client side when the form is submitted
           username: user.username,
           phone: user.phone,
           email: user.email,
