@@ -59,7 +59,6 @@ const ContactForm = () => {
     <form className={styles.contact_form} onSubmit={handleSubmit}>
       <div className={styles.input_field}>
         <label htmlFor="username" className={styles.label}>
-          {" "}
           Enter Your Name:
         </label>
         <input
@@ -68,6 +67,7 @@ const ContactForm = () => {
           id="username"
           placeholder="Enter Your Name"
           className={mulish.className}
+          value={user.username}
           onChange={getUsers}
           required
           autoComplete="off"
@@ -76,7 +76,6 @@ const ContactForm = () => {
 
       <div className={styles.input_field}>
         <label htmlFor="phone" className={styles.label}>
-          {" "}
           Enter Your Phone:
         </label>
         <input
@@ -85,6 +84,7 @@ const ContactForm = () => {
           id="phone"
           placeholder="Enter Your Phone"
           className={mulish.className}
+          value={user.phone}
           onChange={getUsers}
           required
         />
@@ -92,7 +92,6 @@ const ContactForm = () => {
 
       <div className={styles.input_field}>
         <label htmlFor="email" className={styles.label}>
-          {" "}
           Enter Your Email:
         </label>
         <input
@@ -101,6 +100,7 @@ const ContactForm = () => {
           id="email"
           placeholder="Enter Your Email"
           className={mulish.className}
+          value={user.email}
           onChange={getUsers}
           required
         />
@@ -108,7 +108,6 @@ const ContactForm = () => {
 
       <div className={styles.input_field}>
         <label htmlFor="message" className={styles.label}>
-          {" "}
           Your Message:
         </label>
         <textarea
@@ -117,6 +116,7 @@ const ContactForm = () => {
           placeholder="Enter Your Message"
           className={mulish.className}
           rows={5}
+          value={user.message}
           onChange={getUsers}
           required
         />
