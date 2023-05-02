@@ -1,5 +1,5 @@
 .footer {
-    background: #161617;
+    background: #0A4D68;
     width: 100%;
     margin: 6rem auto 0 auto;
 }
@@ -147,7 +147,7 @@
     width: calc(100% + 55px);
     outline: none;
     border: 2px solid #AFAFB6;
-    background: #161617;
+    background: #0A4D68;
     border-radius: 4px;
     padding: 0 15px;
     font-size: 15px;
@@ -178,7 +178,7 @@
 
 .footer .bottom-details {
     width: 100%;
-    background: #161617;
+    background: #210062;
 }
 
 .footer .bottom-details .bottom_text {
