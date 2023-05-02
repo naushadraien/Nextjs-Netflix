@@ -11,15 +11,48 @@ const mulish = Mulish({
 
 const ContactForm = () => {
   const [user, setUser] = useState({});
+  const [status, setStatus] = useState(null); //this is used to set the status of the form whether it is submitted or not
 
   const getUsers = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value }); //this is for targetting the name component of the form that is assigned as value
     console.log(user);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(user);
+  const handleSubmit = async (e) => {
+    e.preventDefault(); //this is used to prevent the default behaviour of the form that is to refresh the page when the form is submitted
+    try {
+      //this handleSubmit is calling the API and sending the data to the database which is made inside the api folder in the root directory and within which contact folder is made and within we have route.js file which is used to send the data to the database
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json" 
+        },
+        body: JSON.stringify({
+          username: user.username,
+          phone: user.phone,
+          email: user.email,
+          message: user.message,
+        }),
+      });
+
+      //Setting the status based on the response from the API route
+      if (response.status === 200) { //this is used to check the status of the form whether it is submitted or not
+
+        setUser({
+          username: "",
+          phone: "",
+          email: "",
+          message: "",
+        }); //this is used to clear the form after the form is submitted
+
+        setStatus("success"); //this is used to set the status of the form whether it is submitted or not
+      } else {
+        setStatus("error"); //this is used to set the error status of the form whether it is submitted or not
+      };
+
+    } catch (error) {
+      console.log(error);
+    }    
   };
 
   return (
@@ -89,6 +122,10 @@ const ContactForm = () => {
         />
       </div>
       <div>
+
+        {status === "success" && <p className={styles.success_msg}>Thank You for Sending Us a Message!</p>}
+        {status === "error" && <p className={styles.error_msg}>Something went wrong while submitting your message!</p>}
+
         <button type="submit" className={mulish.className}>
           Message Me
         </button>

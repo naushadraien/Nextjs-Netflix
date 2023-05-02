@@ -29,3 +29,6 @@ const contactSchema = new mongoose.Schema({
 
 
 //this is for creating a model or document for the contact form
+const Contact = mongoose.models.Contact || mongoose.model("Contact", contactSchema); //this is for creating a model or document for the contact form and checks if the model already exists or not and if it exists then it will use the existing model called Contact otherwise it will create a new model called Contact and use it
+
+export default Contact; //this is for exporting the model or document for the contact form
