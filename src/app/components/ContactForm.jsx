@@ -2,6 +2,7 @@
 import styles from "@/app/styles/contact.module.css";
 import { Mulish } from "next/font/google";
 import { useState } from "react";
+import { submitform } from "../contact/serverActionContact";
 
 const mulish = Mulish({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
@@ -15,24 +16,35 @@ const ContactForm = () => {
 
   const getUsers = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value }); //this is for targetting the name component of the form that is assigned as value
-    console.log(user);
+    // console.log(user);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault(); //this is used to prevent the default behaviour of the form that is to refresh the page when the form is submitted
+  const handleSubmit = async (formData) => {
+    // e.preventDefault(); //this is used to prevent the default behaviour of the form that is to refresh the page when the form is submitted
     try {
       //this handleSubmit is calling the API and sending the data to the database which is made inside the api folder in the root directory and within which contact folder is made and within we have route.js file which is used to send the data to the database
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { 
-          "Content-Type": "application/json" 
-        },
-        body: JSON.stringify({ //here username, phone, email, message are the names that are used in the database and user.username, user.phone, user.email, user.message are the values that are used in the database from the user from client side when the form is submitted
-          username: user.username,
-          phone: user.phone,
-          email: user.email,
-          message: user.message,
-        }),
+      // const response = await fetch("/api/contact", {
+      //   method: "POST",
+      //   headers: { 
+      //     "Content-Type": "application/json" 
+      //   },
+      //   body: JSON.stringify({ //here username, phone, email, message are the names that are used in the database and user.username, user.phone, user.email, user.message are the values that are used in the database from the user from client side when the form is submitted
+      //     username: user.username,
+      //     phone: user.phone,
+      //     email: user.email,
+      //     message: user.message,
+      //   }),
+      // });
+
+
+      //commented the above code and used the below code to use the server action for the form
+ 
+      //this response is for server action for the form
+      const response = await submitform({
+        username: formData.get("username"),
+        phone: formData.get("phone"),
+        email: formData.get("email"),
+        message: formData.get("message"),
       });
 
       //Setting the status based on the response from the API route
@@ -56,7 +68,10 @@ const ContactForm = () => {
   };
 
   return (
-    <form className={styles.contact_form} onSubmit={handleSubmit}>
+    <form className={styles.contact_form} 
+    // onSubmit={handleSubmit}
+    action={handleSubmit}
+    >
       <div className={styles.input_field}>
         <label htmlFor="username" className={styles.label}>
           Enter Your Name:
