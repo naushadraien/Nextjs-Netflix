@@ -1,5 +1,5 @@
 import Link from "next/link";
-import MovieCard from "../components/movieCard";
+import MovieCard from "../components/MovieCard";
 import styles from "@/app/styles/common.module.css";
 
 const Movie = async ({ searchParams }) => {
